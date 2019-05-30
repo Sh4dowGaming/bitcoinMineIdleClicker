@@ -5,16 +5,35 @@
 <head><title>0 Bitcoins</title></head>
 <body>
 
-    <a hred=# onclick="add()">Click<img src=""></a>
+    <a hred=# onClick="add()">Click<img src=""></a>
     <br><br>
-    Bitcoins
+    You have
     <input type="text" id="text" disabled style= text-align:center>
     <script>
     function add() {
        bitcoinCount = bitcoinCount + 1
        document.getElementById('text').value = bitcoinCount;
+       document.title = bitcoinCount + "Bitcoins";
     }
                
     </script>
+   Bitcoins!
+   <br><br>
+   
+   <button><a href="a" onClick="save()">Save</a></button> 
+   <button><a hred="a" onClick="load()">Load</a></button>
+   
+   <script>
+      function save() {
+         localStorage.setItem("IdleClickerBitcoinGame", bitcoinCount)
+      }
+      function load() {
+         bitcoinCount = localStorage.getItem("bitcoinCount");
+         bitcoinCount = parseInt(bitcoinCount);
+         document.getElemenyById('text').value = bitcoinCount
+         document.title = bitcoinCount + " Bitcoins"
+      }
+      
+   </script>
 </body>
 </html>
