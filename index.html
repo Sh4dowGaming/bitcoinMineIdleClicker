@@ -1,5 +1,16 @@
 <script>
+   function update() {
+      
+      }
    var bitcoinCount = 0;
+   var autoClick = 0;
+   
+   function timer() {
+      bitcoinCount = bitcoinCount + autoClick
+      update()
+      }
+      setInterval(timer, 1000)
+     
 </script>
 <html>
 <head><title>0 Bitcoins</title></head>
@@ -21,6 +32,10 @@
    
    <button><a hred="a" onClick="save()">Save</a></button> 
    <button><a hred="a" onClick="load()">Load</a></button>
+   <br><br>
+   
+   <p>Release data-mining software</p>
+   <button><a href="#" onClick="buyAutoClick"><img src= width="30px height="40px"></button>
    
    <script>
       function save() {
