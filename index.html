@@ -1,7 +1,10 @@
 <script>
    function update() {
-      
-      }
+       document.getElementById('text').value = bitcoinCount;
+       document.title = bitcoinCount + " Bitcoins";
+      document.getElementById('amountAutoClick').innerHTML = "You have released " + autoClick + " data mining programs"
+      document.getElementById('costAutoClick').innerHTML = ((autoClick+1) * 12) + " Bitcoins";
+   }
    var bitcoinCount = 0;
    var autoClick = 0;
    
@@ -23,10 +26,10 @@
     <script>
     function add() {
        bitcoinCount = bitcoinCount + 1
-       document.getElementById('text').value = bitcoinCount;
-       document.title = bitcoinCount + " Bitcoins";
+       update()
    }               
    </script>
+   
    Bitcoins!
    <br><br>
    
@@ -35,17 +38,27 @@
    <br><br>
    
    <p>Release data-mining software</p>
-   <button><a href="#" onClick="buyAutoClick"><img src= width="30px height="40px"></button>
+   <button><a href="#" onClick="buyAutoClick()"><img src=images.jpeg width="30px height="40px"></a></button>
+      <p id="costAutoClick">12 Bitcoins</p>
+      <p id="amountAutoClick">You have released no software</p>
    
    <script>
       function save() {
          localStorage.setItem("bitcoinCount", bitcoinCount)
+         localStorage.setItem("autoClick", autoClick);
       }
       function load() {
          bitcoinCount = localStorage.getItem("bitcoinCount");
          bitcoinCount = parseInt(bitcoinCount);
-         document.getElementById('text').value = bitcoinCount;
-         document.title = bitcoinCount + " Bitcoins"
+         autoClick = localStorage.getItem("autoClick");
+         autoClick = parseInt(autoClick);
+         update()
+      }
+      function buyAutoClick() {
+      if (bitcoinCount >= ((autoClick+1) * 12)) {
+      bitcoinCount = bitcoinCount - ((autoClick+1) * 12);
+      autoClick = autoClick + 1
+      update()
       }
       
    </script>
